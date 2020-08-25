@@ -1,0 +1,2 @@
+﻿Enable-Migrations -ContextTypeName FIT5032_W04_CodeFirst 
+add-migration -ConfigurationTypeName FIT5032_W04_CodeFirst.Migrations.Configuration "InitialCreation"
