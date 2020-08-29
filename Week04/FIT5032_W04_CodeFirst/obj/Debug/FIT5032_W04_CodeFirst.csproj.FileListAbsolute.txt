@@ -80,4 +80,3 @@ C:\Users\A\Documents\GitHub\FIT5032\Week04\FIT5032_W04_CodeFirst\obj\Debug\FIT50
 C:\Users\A\Documents\GitHub\FIT5032\Week04\FIT5032_W04_CodeFirst\obj\Debug\FIT5032_W04_CodeFirst.csproj.CopyComplete
 C:\Users\A\Documents\GitHub\FIT5032\Week04\FIT5032_W04_CodeFirst\obj\Debug\FIT5032_W04_CodeFirst.dll
 C:\Users\A\Documents\GitHub\FIT5032\Week04\FIT5032_W04_CodeFirst\obj\Debug\FIT5032_W04_CodeFirst.pdb
-C:\Users\A\Documents\GitHub\FIT5032\Week04\FIT5032_W04_CodeFirst\obj\Debug\FIT5032_W04_CodeFirst.csprojAssemblyReference.cache

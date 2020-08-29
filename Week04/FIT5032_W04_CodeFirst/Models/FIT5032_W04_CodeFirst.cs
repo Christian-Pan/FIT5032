@@ -2,30 +2,6 @@ namespace FIT5032_W04_CodeFirst.Models
 {
     using System;
     using System.Data.Entity;
-    using System.Linq;
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            using (var db = new FIT5032_W04_CodeFirst())
-            {
-                var units = new Unit[3];
-                units[0] = new Unit { Name = "FIT5032", Description = "Web Application Development" };
-                units[1] = new Unit { Name = "FIT9131", Description = "Programming with Java" };
-                units[2] = new Unit { Name = "FIT9132", Description = "Database" };
-                for (int i = 0; i < units.Length; i++)
-                {
-                    db.Units.Add(units[i]);
-                }
-
-                var student = new Student { FirstName = "Christian", LastName = "Pan", Units = units };
-                db.Students.Add(student);
-                db.SaveChanges();
-                Console.WriteLine("Data has been saved to database");
-            }
-        }
-    }
     public class FIT5032_W04_CodeFirst : DbContext
     {
         // Your context has been configured to use a 'FIT5032_W04_CodeFirst' connection string from your application's 
@@ -60,6 +36,7 @@ namespace FIT5032_W04_CodeFirst.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public virtual Student Student { get; set; }
     }
 
     //public class MyEntity
