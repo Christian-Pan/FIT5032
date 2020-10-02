@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Administrator Page</h1>
+    <p class="lead">This page is for the administrator to manage the content of the application. An administrator has the authority to create, read, update or delete a record of chapters, sections or comments.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Edit Chapters</h2>
+        <p>
+            You are able to apply CRUD operations on Chapters.
+        </p>
+        <p><a href='@Url.Action("Index", "Chapters")' class="btn btn-primary btn-lg">Show Chapters &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Edit Sections</h2>
+        <p>
+            You are able to apply CRUD operations on Sections.
+        </p>
+        <p><a href='@Url.Action("Index", "Sections")' class="btn btn-primary btn-lg">Show Sections &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Edit Comments</h2>
+        <p>
+            You are able to apply CRUD operations on Comments.
+        </p>
+        <p><a href='@Url.Action("Index", "Comments")' class="btn btn-primary btn-lg">Show Comments &raquo;</a></p>
+    </div>
+</div>

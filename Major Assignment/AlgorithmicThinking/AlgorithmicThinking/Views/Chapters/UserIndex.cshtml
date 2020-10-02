@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AlgorithmicThinking.Models.Chapter>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="classes_text">Chapters</h1>
+    <div class="dance_main">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4">
+                    <a href='@Url.Action("Details", "Chapters", new { id=item.Id })'>
+                        <div class="box">@Html.DisplayFor(modelItem => item.Title)</div>
+                    </a>
+                </div>
+
+            }
+        </div>
+    </div>
+    <div class="readmore_bt"><a href="#">Read More</a></div>
+</div>

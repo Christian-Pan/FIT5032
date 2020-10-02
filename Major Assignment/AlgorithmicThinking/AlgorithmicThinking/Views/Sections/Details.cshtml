@@ -1,0 +1,11 @@
+﻿@model IEnumerable<AlgorithmicThinking.Models.Comment>
+
+@{
+    ViewBag.Title = ViewBag.Chapter + " - " + ViewBag.Section;
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h3 class="ballet_text">@ViewBag.Section</h3>
+<p class="amet_text">@ViewBag.SectionContent</p>
+
+<div class="readmore_bt"><a href='@Url.Action("Details", "Chapters", new { id = @ViewBag.Id })'>Go Back</a></div>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Chapter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Sections" Relationship="Self.FK_ChapterSection" FromRole="Chapters" ToRole="Sections" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Datetime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SectionId" Type="Int32" Nullable="false" />
+    <Property Name="CommentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Comments1" Relationship="Self.FK_CommentComment" FromRole="Comments" ToRole="Comments1" />
+    <NavigationProperty Name="Comment1" Relationship="Self.FK_CommentComment" FromRole="Comments1" ToRole="Comments" />
+    <NavigationProperty Name="Section" Relationship="Self.FK_SectionComment" FromRole="Comments" ToRole="Sections" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChapterId" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Chapter" Relationship="Self.FK_ChapterSection" FromRole="Sections" ToRole="Chapters" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_SectionComment" FromRole="Sections" ToRole="Comments" />
+  </EntityType>
+  <Association Name="FK_ChapterSection">
+    <End Role="Chapters" Type="Self.Chapter" Multiplicity="1" />
+    <End Role="Sections" Type="Self.Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chapters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sections">
+        <PropertyRef Name="ChapterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentComment">
+    <End Role="Comments" Type="Self.Comment" Multiplicity="1" />
+    <End Role="Comments1" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments1">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectionComment">
+    <End Role="Sections" Type="Self.Section" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="SectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Chapters" EntityType="Self.Chapter" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Sections" EntityType="Self.Section" />
+    <AssociationSet Name="FK_ChapterSection" Association="Self.FK_ChapterSection">
+      <End Role="Chapters" EntitySet="Chapters" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentComment" Association="Self.FK_CommentComment">
+      <End Role="Comments" EntitySet="Comments" />
+      <End Role="Comments1" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectionComment" Association="Self.FK_SectionComment">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

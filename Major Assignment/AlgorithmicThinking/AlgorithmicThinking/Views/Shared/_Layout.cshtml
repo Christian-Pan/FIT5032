@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Algorithmic Thinking</title>
+
+    @Styles.Render("~/Content/Chapter/css")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo"><a href='@Url.Action("Index", "Home")'><img src="~/Content/Chapter/images/logo.PNG" /></a></div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href='@Url.Action("Index", "Home")'>HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("About", "Home")">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact", "Home")">CONTACT</a>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </nav>
+    </div>
+
+    <div class="body-content">
+        <div class="container">
+            @RenderBody()
+        </div>
+
+        <div class="footer_section layout_padding margin_top0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <h1 class="adderss_text">Adderss</h1>
+                        <div class="map_icon"><img src="~/Content/Chapter/images/map-icon.png"><span class="paddlin_left_0">900 Dandenong Rd, Caulfield East VIC 3145</span></div>
+                        <div class="map_icon_1"><img src="~/Content/Chapter/images/call-icon.png"><span class="paddlin_left_0">+0123456789<br>+9876543210</span></div>
+                        <div class="map_icon"><img src="~/Content/Chapter/images/mail-icon.png"><span class="paddlin_left_0">admin@algothink.com</span></div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <h1 class="adderss_text">Additional Online Classes</h1>
+                        <div class="hiphop_text_1">Operating System :<span style="text-align: right; float: right;"> 07:00am - 9:00am</span></div>
+                        <div class="hiphop_text_1">Computer Networking :<span style="text-align: right; float: right;"> 09:00am - 12:00am</span></div>
+                        <div class="hiphop_text_1">Advanced Java :   <span style="text-align: right; float: right;"> 06:00pm - 08:00pm</span></div>
+                        <div class="hiphop_text_1">Databases :         <span style="text-align: right; float: right;"> 07:30pm - 09:30pm</span></div>
+                        <div class="hiphop_text_1">Interview Skills :   <span style="text-align: right; float: right;"> 10:00pm - 11:00pm</span></div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <h1 class="adderss_text">Newsletter</h1>
+                        <input type="text" class="Enter_text" placeholder="Enter your Emil" name="Enter your Emil">
+                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                        <div class="social_icon">
+                            <ul>
+                                <li><a href="#"><img src="~/Content/Chapter/images/fb-icon.png"></a></li>
+                                <li><a href="#"><img src="~/Content/Chapter/images/twitter-icon.png"></a></li>
+                                <li><a href="#"><img src="~/Content/Chapter/images/linkedin-icon.png"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright_section">
+            <div class="container">
+                <p class="copyright_text">Copyright &copy; @DateTime.Now.Year. Alogrithmic Thinking All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
