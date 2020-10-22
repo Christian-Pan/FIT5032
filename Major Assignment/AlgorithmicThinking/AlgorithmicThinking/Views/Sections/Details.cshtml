@@ -6,6 +6,6 @@
 }
 
 <h3 class="ballet_text">@ViewBag.Section</h3>
-<p class="amet_text">@ViewBag.SectionContent</p>
+<span>@Html.Raw(ViewBag.SectionContent)</span>
 
 <div class="readmore_bt"><a href='@Url.Action("Details", "Chapters", new { id = @ViewBag.Id })'>Go Back</a></div>

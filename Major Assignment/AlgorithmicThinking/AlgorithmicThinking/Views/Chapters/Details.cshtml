@@ -7,7 +7,7 @@
 
 <div class="container-fluid">
     <h1 class="classes_text">@ViewBag.ChapterTitle</h1>
-    <p class="amet_text">@ViewBag.Content</p>
+    <span>@Html.Raw(ViewBag.Content)</span>
     <div class="dance_main">
         <div class="row">
             @foreach (var item in Model)

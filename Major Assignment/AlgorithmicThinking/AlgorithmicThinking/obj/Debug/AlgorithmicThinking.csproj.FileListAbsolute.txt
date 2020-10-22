@@ -317,7 +317,6 @@ C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\Algorit
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\obj\Debug\AlgorithmicThinking.csprojAssemblyReference.cache
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\obj\Debug\AlgorithmicThinking.csproj.CoreCompileInputs.cache
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\obj\Debug\AlgorithmicThinking.csproj.CopyComplete
 C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\obj\Debug\AlgorithmicThinking.dll

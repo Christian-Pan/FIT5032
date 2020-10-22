@@ -13,8 +13,8 @@
       <End Role="Section" EntitySet="Sections" />
     </AssociationSet>
     <AssociationSet Name="CommentComment" Association="Algorithmic_Thinking_Model.CommentComment">
-      <End Role="Comment" EntitySet="Comments" />
-      <End Role="Comment1" EntitySet="Comments" />
+      <End EntitySet="Comments" Role="Comment" />
+      <End EntitySet="Comments" Role="Comment1" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Comment">
@@ -78,8 +78,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CommentComment">
-    <End Type="Algorithmic_Thinking_Model.Comment" Role="Comment" Multiplicity="1" />
-    <End Type="Algorithmic_Thinking_Model.Comment" Role="Comment1" Multiplicity="*" />
+    <End Type="Algorithmic_Thinking_Model.Comment" Multiplicity="1" Role="Comment" />
+    <End Type="Algorithmic_Thinking_Model.Comment" Multiplicity="*" Role="Comment1" />
     <ReferentialConstraint>
       <Principal Role="Comment">
         <PropertyRef Name="Id" />

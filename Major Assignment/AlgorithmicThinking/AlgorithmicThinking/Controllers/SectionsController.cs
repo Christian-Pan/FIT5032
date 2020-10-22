@@ -67,6 +67,7 @@ namespace AlgorithmicThinking.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "Id,Title,Content,ChapterId")] Section section)
         {
             if (ModelState.IsValid)
@@ -104,6 +105,7 @@ namespace AlgorithmicThinking.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "Id,Title,Content,ChapterId")] Section section)
         {
             if (ModelState.IsValid)

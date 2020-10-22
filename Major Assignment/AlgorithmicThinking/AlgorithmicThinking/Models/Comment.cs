@@ -11,8 +11,7 @@ namespace AlgorithmicThinking.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Comment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,15 +19,10 @@ namespace AlgorithmicThinking.Models
         {
             this.Comments = new HashSet<Comment>();
         }
-
-        [Required]
+    
         public int Id { get; set; }
-        [Required]
         public string Uid { get; set; }
-        [Required]
-        [DataType(DataType.DateTime)]
         public System.DateTime Datetime { get; set; }
-        [Required]
         public string Content { get; set; }
         public int SectionId { get; set; }
         public int CommentId { get; set; }

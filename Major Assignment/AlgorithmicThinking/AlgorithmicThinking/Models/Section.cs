@@ -11,8 +11,7 @@ namespace AlgorithmicThinking.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Section
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,17 +20,10 @@ namespace AlgorithmicThinking.Models
             this.Comments = new HashSet<Comment>();
         }
     
-        [Required]
         public int Id { get; set; }
-        [Required]
-        [StringLength(255, MinimumLength = 4)]
         public string Title { get; set; }
-        [Required]
         public string Content { get; set; }
-        [Required]
         public int ChapterId { get; set; }
-        [Required]
-        [DataType(DataType.DateTime)]
         public System.DateTime LastUpdatedTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
