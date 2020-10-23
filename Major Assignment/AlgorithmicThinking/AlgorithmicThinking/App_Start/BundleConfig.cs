@@ -25,6 +25,8 @@ namespace AlgorithmicThinking
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/mapbox").Include(
+                    "~/Scripts/location.js"));
 
             bundles.Add(new StyleBundle("~/Content/Chapter/css").Include(
                         "~/Content/Chapter/css/*.css"));

@@ -28,5 +28,8 @@ namespace AlgorithmicThinking.Models
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<Chapter> Chapters { get; set; }
+
+        // public System.Data.Entity.DbSet<AlgorithmicThinking.Models.Location> Locations { get; set; }
+        // public System.Data.Entity.DbSet<AlgorithmicThinking.Models.Location> Locations { get; set; }
     }
 }

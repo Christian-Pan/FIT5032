@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,6 +205,8 @@
       <DependentUpon>Algorithmic_Thinking_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Location_Model.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Section.cs">
       <DependentUpon>Algorithmic_Thinking_Model.tt</DependentUpon>
@@ -222,6 +225,10 @@
     <Content Include="App_Data\Chapter_Database.mdf" />
     <Content Include="App_Data\Chapter_Database_log.ldf">
       <DependentUpon>Chapter_Database.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Location_Database.mdf" />
+    <Content Include="App_Data\Location_Database_log.ldf">
+      <DependentUpon>Location_Database.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -602,6 +609,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\location.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
@@ -806,6 +814,11 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

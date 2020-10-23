@@ -9,6 +9,7 @@ namespace AlgorithmicThinking.Controllers
     public class HomeController : Controller
     {
         [Authorize]
+        [RequireHttps]
         public ActionResult Index()
         {
             if (User.IsInRole("Administrator"))
@@ -25,9 +26,7 @@ namespace AlgorithmicThinking.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return RedirectToAction("Index", "Locations");
         }
     }
 }

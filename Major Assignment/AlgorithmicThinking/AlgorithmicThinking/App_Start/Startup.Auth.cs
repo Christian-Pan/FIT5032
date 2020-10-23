@@ -58,11 +58,11 @@ namespace AlgorithmicThinking
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "840878574150-24stjha6o5n3tp0he3e4o5bjcajot3me.apps.googleusercontent.com",
+                ClientSecret = "Stf7-BQi-oYyWiQCZriuNMPg"
+            });
         }
     }
 }
