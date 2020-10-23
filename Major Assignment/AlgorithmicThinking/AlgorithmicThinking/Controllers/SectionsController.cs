@@ -14,7 +14,7 @@ namespace AlgorithmicThinking.Controllers
     public class SectionsController : Controller
     {
         private Algorithmic_Thinking_ModelContainer db = new Algorithmic_Thinking_ModelContainer();
-
+        private ApplicationDbContext userDb = new ApplicationDbContext();
         // GET: Sections
         [Authorize(Roles = "Administrator")]
         public ActionResult Index()
@@ -40,17 +40,55 @@ namespace AlgorithmicThinking.Controllers
 
             // ViewBag.Chapter = chapter.Title;
             // ViewBag.ChapterContent = chapter.Content;
+            ViewBag.SectionId = section.Id;
             ViewBag.Section = section.Title;
             ViewBag.SectionContent = section.Content;
             ViewBag.Id = chapter.Id;
 
+            Dictionary<Comment, List<Comment>> dict = new Dictionary<Comment, List<Comment>>();
+            foreach (var comment in db.Comments)
+            {
+                if (comment.SectionId == section.Id && comment.CommentId == 13)
+                {
+                    var user = userDb.Users.First(i => i.Id == comment.Uid);
+                    comment.Uid = user.Email;
+                    dict.Add(comment, new List<Comment>());
+
+                    foreach (var subComment in db.Comments)
+                    {
+                        if (subComment.SectionId == section.Id && subComment.CommentId == comment.Id)
+                        {
+                            var anotherUser = userDb.Users.First(i => i.Id == subComment.Uid);
+                            subComment.Uid = anotherUser.Email;
+                            dict[comment].Add(subComment);
+                        }
+                    }
+                }
+            }
+
+            /*
             List<Comment> comments = new List<Comment>();
             foreach (var comment in db.Comments)
             {
-                if (comment.SectionId == section.Id) comments.Add(comment);
+                if (comment.SectionId == section.Id)
+                {
+                    var user = userDb.Users.First(i => i.Id == comment.Uid);
+                    if (comment.CommentId == 13)
+                    {
+                        comment.Uid = user.Email;
+                    }
+                    else
+                    {
+                        var topComment = db.Comments.First(i => i.Id == comment.CommentId);
+                        var anotherUser = userDb.Users.First(i => i.Id == comment.Uid);
+                        comment.Uid = user.Email + " replies " + anotherUser.Email;
+                    }
+                    comments.Add(comment);
+                }
             }
+            */
 
-            return View(comments);
+            return View(dict);
         }
 
         // GET: Sections/Create

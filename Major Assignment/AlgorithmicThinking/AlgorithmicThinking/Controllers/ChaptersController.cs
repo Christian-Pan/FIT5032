@@ -44,7 +44,7 @@ namespace AlgorithmicThinking.Controllers
             List<Section> sections = new List<Section>();
             foreach (var section in db.Sections)
             {
-                if (section.ChapterId == id) sections.Add(section);
+                if (section.ChapterId == id && section.Id != 1) sections.Add(section);
             }
 
             ViewBag.ChapterTitle = chapter.Title;

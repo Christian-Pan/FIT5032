@@ -4,57 +4,57 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Algorithmic_Thinking_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="Algorithmic_Thinking_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
   <EntityContainer Name="Algorithmic_Thinking_ModelStoreContainer">
-    <EntitySet Name="Comments" EntityType="Algorithmic_Thinking_Model.Store.Comments" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Sections" EntityType="Algorithmic_Thinking_Model.Store.Sections" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Chapters" EntityType="Algorithmic_Thinking_Model.Store.Chapters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="Algorithmic_Thinking_Model.Store.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sections" EntityType="Algorithmic_Thinking_Model.Store.Sections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chapters" EntityType="Algorithmic_Thinking_Model.Store.Chapters" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="SectionComment" Association="Algorithmic_Thinking_Model.Store.SectionComment">
-      <End Role="Section" EntitySet="Sections" />
-      <End Role="Comment" EntitySet="Comments" />
+      <End EntitySet="Sections" Role="Section" />
+      <End EntitySet="Comments" Role="Comment" />
     </AssociationSet>
     <AssociationSet Name="ChapterSection" Association="Algorithmic_Thinking_Model.Store.ChapterSection">
-      <End Role="Chapter" EntitySet="Chapters" />
-      <End Role="Section" EntitySet="Sections" />
+      <End EntitySet="Chapters" Role="Chapter" />
+      <End EntitySet="Sections" Role="Section" />
     </AssociationSet>
     <AssociationSet Name="CommentComment" Association="Algorithmic_Thinking_Model.Store.CommentComment">
-      <End Role="Comment" EntitySet="Comments" />
-      <End Role="Comment1" EntitySet="Comments" />
+      <End EntitySet="Comments" Role="Comment" />
+      <End EntitySet="Comments" Role="Comment1" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Comments">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Uid" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Datetime" Type="datetime" Nullable="false" />
-    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SectionId" Type="int" Nullable="false" />
-    <Property Name="CommentId" Type="int" Nullable="false" />
+    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Uid" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Datetime" Nullable="false" Type="datetime" />
+    <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="SectionId" Nullable="false" Type="int" />
+    <Property Name="CommentId" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Sections">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ChapterId" Type="int" Nullable="false" />
-    <Property Name="LastUpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Title" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="ChapterId" Nullable="false" Type="int" />
+    <Property Name="LastUpdatedTime" Nullable="false" Type="datetime" />
   </EntityType>
   <EntityType Name="Chapters">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LastUpdatedTime" Type="datetime" Nullable="false" />
+    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="Title" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="Content" Nullable="false" Type="nvarchar(max)" />
+    <Property Name="LastUpdatedTime" Nullable="false" Type="datetime" />
   </EntityType>
   <Association Name="SectionComment">
-    <End Role="Section" Type="Algorithmic_Thinking_Model.Store.Sections" Multiplicity="1" />
-    <End Role="Comment" Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="*" />
+    <End Type="Algorithmic_Thinking_Model.Store.Sections" Multiplicity="1" Role="Section" />
+    <End Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="*" Role="Comment" />
     <ReferentialConstraint>
       <Principal Role="Section">
         <PropertyRef Name="Id" />
@@ -65,8 +65,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ChapterSection">
-    <End Role="Chapter" Type="Algorithmic_Thinking_Model.Store.Chapters" Multiplicity="1" />
-    <End Role="Section" Type="Algorithmic_Thinking_Model.Store.Sections" Multiplicity="*" />
+    <End Type="Algorithmic_Thinking_Model.Store.Chapters" Multiplicity="1" Role="Chapter" />
+    <End Type="Algorithmic_Thinking_Model.Store.Sections" Multiplicity="*" Role="Section" />
     <ReferentialConstraint>
       <Principal Role="Chapter">
         <PropertyRef Name="Id" />
@@ -77,8 +77,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CommentComment">
-    <End Role="Comment" Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="1" />
-    <End Role="Comment1" Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="*" />
+    <End Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="1" Role="Comment" />
+    <End Type="Algorithmic_Thinking_Model.Store.Comments" Multiplicity="*" Role="Comment1" />
     <ReferentialConstraint>
       <Principal Role="Comment">
         <PropertyRef Name="Id" />

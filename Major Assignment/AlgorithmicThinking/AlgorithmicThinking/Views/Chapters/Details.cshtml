@@ -8,13 +8,13 @@
 <div class="container-fluid">
     <h1 class="classes_text">@ViewBag.ChapterTitle</h1>
     <span>@Html.Raw(ViewBag.Content)</span>
-    <div class="dance_main">
+    <div class="dance_main" style="margin-top:10px">
         <div class="row">
             @foreach (var item in Model)
             {
                 <div class="col-sm-4">
                     <a href='@Url.Action("Details", "Sections", new { id=item.Id })'>
-                        <div class="box">@Html.DisplayFor(modelItem => item.Title)</div>
+                        <div class="box" style="margin:auto auto">@Html.DisplayFor(modelItem => item.Title)</div>
                     </a>
                 </div>
             }

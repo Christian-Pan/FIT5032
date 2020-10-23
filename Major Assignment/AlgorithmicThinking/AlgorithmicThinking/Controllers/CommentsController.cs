@@ -19,7 +19,7 @@ namespace AlgorithmicThinking.Controllers
         // GET: Comments
         public ActionResult Index()
         {
-            var comments = db.Comments.Include(c => c.Section).Include(c => c.Comment1);
+            var comments = db.Comments;
             return View(comments.ToList());
         }
 
@@ -39,10 +39,27 @@ namespace AlgorithmicThinking.Controllers
         }
 
         // GET: Comments/Create
-        public ActionResult Create()
+        public ActionResult Create(bool? IsForSection, int? number)
         {
-            ViewBag.SectionId = new SelectList(db.Sections, "Id", "Title");
-            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Uid");
+            if (IsForSection == null && number == null)
+            {
+                ViewBag.SectionId = 1;
+                ViewBag.CommentId = 13;
+            } 
+            else
+            {
+                if (IsForSection == true)
+                {
+                    ViewBag.SectionId = number;
+                    ViewBag.CommentId = 13;
+                }
+                else
+                {
+                    var comment = db.Comments.First(i => i.Id == number);
+                    ViewBag.SectionId = comment.SectionId;
+                    ViewBag.CommentId = number;
+                }
+            }
             return View();
         }
 
@@ -52,18 +69,18 @@ namespace AlgorithmicThinking.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "Id,Content,SectionId")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,Content,SectionId,CommentId")] Comment comment)
         {
             if (ModelState.IsValid)
             {
                 comment.Uid = User.Identity.GetUserId();
                 comment.Datetime = DateTime.Now;
                 db.Comments.Add(comment);
-                return RedirectToAction("Index");
+                db.SaveChanges();
+
+                return RedirectToAction("Details", "Sections", new { id = comment.SectionId });
             }
 
-            ViewBag.SectionId = new SelectList(db.Sections, "Id", "Title", comment.SectionId);
-            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Uid", comment.CommentId);
             return View(comment);
         }
 
@@ -80,7 +97,7 @@ namespace AlgorithmicThinking.Controllers
                 return HttpNotFound();
             }
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Title", comment.SectionId);
-            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Uid", comment.CommentId);
+            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Id", comment.CommentId);
             return View(comment);
         }
 
@@ -101,7 +118,7 @@ namespace AlgorithmicThinking.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.SectionId = new SelectList(db.Sections, "Id", "Title", comment.SectionId);
-            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Uid", comment.CommentId);
+            ViewBag.CommentId = new SelectList(db.Comments, "Id", "Id", comment.CommentId);
             return View(comment);
         }
 

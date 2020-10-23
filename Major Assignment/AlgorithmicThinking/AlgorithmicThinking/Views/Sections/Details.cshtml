@@ -1,11 +1,47 @@
-﻿@model IEnumerable<AlgorithmicThinking.Models.Comment>
+﻿@model Dictionary<AlgorithmicThinking.Models.Comment, List<AlgorithmicThinking.Models.Comment>>
 
 @{
     ViewBag.Title = ViewBag.Chapter + " - " + ViewBag.Section;
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<h3 class="ballet_text">@ViewBag.Section</h3>
-<span>@Html.Raw(ViewBag.SectionContent)</span>
+    <div style="width:80%;margin:auto">
+        <h3 class="ballet_text" style="text-align:left">@ViewBag.Section</h3>
+        <span>@Html.Raw(ViewBag.SectionContent)</span>
 
-<div class="readmore_bt"><a href='@Url.Action("Details", "Chapters", new { id = @ViewBag.Id })'>Go Back</a></div>
+        <div class="dance_main">
+            <div class="row" style="margin-top:5px">
+                @foreach (var item in Model)
+                {
+                    <div class="shortcode_left" style="border-radius:8px;padding-bottom:5px;margin-top:30px;width:80%">
+                        <div style="font-weight:bold;margin-bottom:3px">
+                            @Html.DisplayFor(modelItem => item.Key.Uid)
+                            <div style="float:right">@Html.DisplayFor(modelItem => item.Key.Datetime)</div>
+                        </div>
+                        <span class="tempor_text">
+                            @Html.Raw(item.Key.Content)
+                        </span>
+                        <a href='@Url.Action("Create", "Comments", new { IsForSection = false, number = item.Key.Id })'>
+                            <input type="submit" value="Reply" class="btn btn-default" style="margin:5px;float:right" />
+                        </a>
+                    </div>
+
+                    foreach (var value in item.Value)
+                    {
+                        <div class="shortcode_left" style="border-radius:8px;padding-bottom:5px;margin-top:10px;width:75%;margin-left:10%">
+                            <div style="font-weight:bold;margin-bottom:3px">
+                                @Html.DisplayFor(modelItem => value.Uid)
+                                <div style="float:right">@Html.DisplayFor(modelItem => value.Datetime)</div>
+                            </div>
+                            <span class="tempor_text">
+                                @Html.Raw(value.Content)
+                            </span>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="readmore_bt"><a href='@Url.Action("Details", "Chapters", new { id = @ViewBag.Id })'>Go Back</a></div>
+        <div class="readmore_bt" style="float:right"><a href='@Url.Action("Create", "Comments", new { IsForSection = true, number = @ViewBag.SectionId })'>Leave a Comment</a></div>
+    </div>
