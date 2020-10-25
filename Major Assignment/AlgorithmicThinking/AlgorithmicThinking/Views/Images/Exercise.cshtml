@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AlgorithmicThinking.Models.Image>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Exercise</h2>
+
+<table class="table">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img class="img-thumbnail" src="@Url.Content("~/Uploads/" + item.Path)" />
+            </td>
+            <td>
+                <a href="@Url.Content("~/Uploads/" + item.Path)">Details</a>
+            </td>
+        </tr>
+    }
+
+</table>

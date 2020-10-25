@@ -44,9 +44,9 @@ namespace FIT5032_Week08A.Controllers
             {
                 try
                 {
-                    String toEmail = model.ToEmail;
-                    String subject = model.Subject;
-                    String contents = model.Contents;
+                    string toEmail = model.ToEmail;
+                    string subject = model.Subject;
+                    string contents = model.Contents;
 
                     EmailSender es = new EmailSender();
                     es.Send(toEmail, subject, contents);

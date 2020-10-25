@@ -92,3 +92,4 @@ C:\Users\Christian\Documents\GitHub\FIT5032\FIT5032_Week08A\FIT5032_Week08A\obj\
 C:\Users\Christian\Documents\GitHub\FIT5032\FIT5032_Week08A\FIT5032_Week08A\obj\Debug\FIT5032_Week08A.csproj.CopyComplete
 C:\Users\Christian\Documents\GitHub\FIT5032\FIT5032_Week08A\FIT5032_Week08A\obj\Debug\FIT5032_Week08A.dll
 C:\Users\Christian\Documents\GitHub\FIT5032\FIT5032_Week08A\FIT5032_Week08A\obj\Debug\FIT5032_Week08A.pdb
+C:\Users\Christian\Documents\GitHub\FIT5032\FIT5032_Week08A\FIT5032_Week08A\bin\StarkbankEcdsa.dll

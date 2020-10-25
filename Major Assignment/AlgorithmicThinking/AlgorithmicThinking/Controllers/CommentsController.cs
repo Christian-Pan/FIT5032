@@ -17,6 +17,7 @@ namespace AlgorithmicThinking.Controllers
         private Algorithmic_Thinking_ModelContainer db = new Algorithmic_Thinking_ModelContainer();
 
         // GET: Comments
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             var comments = db.Comments;
@@ -24,6 +25,7 @@ namespace AlgorithmicThinking.Controllers
         }
 
         // GET: Comments/Details/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -85,6 +87,7 @@ namespace AlgorithmicThinking.Controllers
         }
 
         // GET: Comments/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -107,12 +110,16 @@ namespace AlgorithmicThinking.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit([Bind(Include = "Id,Content,SectionId,CommentId")] Comment comment)
         {
             if (ModelState.IsValid)
             {
-                comment.Uid = User.Identity.GetUserId();
-                comment.Datetime = DateTime.Now;
+                if (!User.IsInRole("Administrator"))
+                {
+                    comment.Uid = User.Identity.GetUserId();
+                    comment.Datetime = DateTime.Now;
+                }
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -123,6 +130,7 @@ namespace AlgorithmicThinking.Controllers
         }
 
         // GET: Comments/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -140,6 +148,7 @@ namespace AlgorithmicThinking.Controllers
         // POST: Comments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             Comment comment = db.Comments.Find(id);

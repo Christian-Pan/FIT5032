@@ -31,10 +31,16 @@
                         <a class="nav-link" href='@Url.Action("Index", "Home")'>HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("About", "Home")">ABOUT</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Contact", "Home")">CONTACT</a>
+                    </li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Send_Email", "Home")">SEND EMAIL</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Feedback", "Home")">FEEDBACK</a>
                     </li>
                 </ul>
                 @Html.Partial("_LoginPartial")

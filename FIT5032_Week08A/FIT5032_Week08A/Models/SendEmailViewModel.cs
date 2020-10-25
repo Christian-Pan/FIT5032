@@ -19,5 +19,8 @@ namespace FIT5032_Week08A.Models
         [Required(ErrorMessage = "Please enter the contents")]
         public string Contents { get; set; }
 
+        [Required(ErrorMessage = "Please enter the filepath")]
+        public string FilePath { get; set; }
+
     }
 }

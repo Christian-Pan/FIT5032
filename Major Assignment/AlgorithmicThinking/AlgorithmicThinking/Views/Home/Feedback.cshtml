@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>    
+    <script src="~/Scripts/feedback.js"></script>
+}
+
+<div ng-app="demoModule" id="body" class="container">
+    <div ng-controller="demoCtrl">
+        <h2>Feedback System</h2>
+        <div ng-if="noResult" class="alert alert-info" role="alert">
+            Failed to retrieve information from the API. Please change the API URL.
+        </div>
+        <div ng-if="!noResult">
+            @if (User.IsInRole("Administrator"))
+            {
+                <h3>List of Feedbacks</h3>
+                <table ng-cloak class="table">
+                    <thead>
+                        <tr>
+                            <th style="display: none;">ID</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in feedbackData">
+                            <td hidden="hidden">{{item.Id}}</td>
+                            <td>{{item.Title}}</td>
+                            <td>{{item.Content}}</td>
+                            <td>
+                                <button class="btn btn-primary"
+                                        ng-model="$scope.Feedback"
+                                        ng-click="edit($index, feedbackData[$index])">
+                                    Edit
+                                </button>
+                                <button class="btn btn-danger"
+                                        ng-click="delete($index)">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+                <div ng-if="deleteResult" class="alert alert-success" role="alert">
+                    Feedback has been deleted.
+                </div>
+            }
+
+            <button class="btn btn-primary" data-ng-click="addButton()">Provide a feedback</button>
+            <br>
+            <div ng-if="showAdd">
+                <div>
+                    <br>
+                    <h2>Provide A Feedback</h2>
+                </div>
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input class="form-control" type="text" data-ng-model="Feedback.Title" />
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Content</label>
+                    <input class="form-control" type="text" data-ng-model="Feedback.Content" />
+                </div>
+
+                <div ng-if="addResult" class="alert alert-success" role="alert">
+                    Post Successful.
+                </div>
+
+                <div>
+                    <button class="btn btn-primary" data-ng-click="save()">Save</button>
+                    <button class="btn btn-default" data-ng-click="back()">Back</button>
+                </div>
+            </div>
+            <br>
+
+            <div ng-show="showEdit">
+                <div ng-if="updateResult" class="alert alert-success" role="alert">
+                    Update Successful.
+                </div>
+                <div>
+                    <h2>Update Feedback</h2>
+                </div>
+                <div hidden="hidden">
+                    <label for="id">Id</label>
+                    <input type="text" data-ng-model="Feedback.Id" />
+                </div>
+                <div class="form-group">
+                    <label for="name">Title</label>
+                    <input class="form-control" type="text" data-ng-model="Feedback.Title" />
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Content</label>
+                    <input class="form-control" type="text" data-ng-model="Feedback.Content" />
+                </div>
+
+                <br />
+                <div>
+                    <button class="btn btn-primary" data-ng-click="update()">Update</button>
+                    <button class="btn btn-default" data-ng-click="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
