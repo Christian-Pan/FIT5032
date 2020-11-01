@@ -1,8 +1,12 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Test XSS";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>@ViewBag.Title.</h2>
+<script src="~/Scripts/angular.min.js"></script>
+
+<div ng-app="">
+    <p>Please input something: <input type="text" ng-model="aString"></p>
+    <p>After filtering: {{aString}}</p>
+</div>

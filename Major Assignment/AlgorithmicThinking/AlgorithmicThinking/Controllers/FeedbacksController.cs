@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AlgorithmicThinking.Models;
+using Microsoft.Security.Application;
 
 namespace AlgorithmicThinking.Controllers
 {
@@ -52,6 +53,12 @@ namespace AlgorithmicThinking.Controllers
 
             db.Entry(feedback).State = EntityState.Modified;
 
+            //XSS filtering
+            string xssContent = feedback.Content;
+            feedback.Content = Encoder.HtmlEncode(xssContent, false);
+            string xssTitle = feedback.Title;
+            feedback.Title = Encoder.HtmlEncode(xssTitle, false);
+
             try
             {
                 db.SaveChanges();
@@ -81,6 +88,11 @@ namespace AlgorithmicThinking.Controllers
             }
 
             db.Feedbacks.Add(feedback);
+            //XSS filtering
+            string xssContent = feedback.Content;
+            feedback.Content = Encoder.HtmlEncode(xssContent, false);
+            string xssTitle = feedback.Title;
+            feedback.Title = Encoder.HtmlEncode(xssTitle, false);
 
             try
             {

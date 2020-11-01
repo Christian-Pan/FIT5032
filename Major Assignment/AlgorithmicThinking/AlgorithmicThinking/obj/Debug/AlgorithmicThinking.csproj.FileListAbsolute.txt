@@ -332,3 +332,17 @@ C:\Users\Christian\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking
 C:\Users\Christian\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.xml
 C:\Users\Christian\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.WebHost.xml
 C:\Users\Christian\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\obj\Debug\AlgorithmicThinking.csprojAssemblyReference.cache
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\SendGrid.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\StarkbankEcdsa.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Net.Http.Formatting.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.WebHost.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\SendGrid.pdb
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\SendGrid.xml
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Net.Http.Formatting.xml
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.xml
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\System.Web.Http.WebHost.xml
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\AntiXssLibrary.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\HtmlSanitizationLibrary.dll
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\AntiXssLibrary.xml
+C:\Users\A\Documents\GitHub\FIT5032\Major Assignment\AlgorithmicThinking\AlgorithmicThinking\bin\HtmlSanitizationLibrary.xml
